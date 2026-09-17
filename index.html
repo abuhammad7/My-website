@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abu Hammad — AI / Data Science / CODE</title>
+<meta name="description" content="Abu Hammad — AI, Data Science  and Software Development portfolio.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#050505;color:#f4f4f4;font-family:Inter,system-ui,sans-serif;overflow-x:hidden}
+/* PREMIUM CUSTOM CURSOR */
+
+* {
+    cursor: none;
+}
+
+.cursor-dot {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: #fff;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+}
+
+.cursor-ring {
+    position: fixed;
+    width: 34px;
+    height: 34px;
+    border: 1px solid rgba(255,255,255,0.55);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition:
+        width 0.25s ease,
+        height 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease;
+}
+/* PREMIUM AMBIENT BACKGROUND */
+
+body {
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(255,255,255,0.055),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 85% 70%,
+            rgba(255,255,255,0.025),
+            transparent 30%
+        ),
+        #050505;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: -20%;
+    pointer-events: none;
+    z-index: 0;
+    background:
+        radial-gradient(
+            circle at 30% 30%,
+            rgba(255,255,255,0.025),
+            transparent 25%
+        );
+    filter: blur(80px);
+    animation: ambientMove 14s ease-in-out infinite alternate;
+}
+
+@keyframes ambientMove {
+    from {
+        transform: translate3d(-2%, -1%, 0) scale(1);
+    }
+
+    to {
+        transform: translate3d(2%, 2%, 0) scale(1.08);
+    }
+}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");z-index:20}
+a{color:inherit;text-decoration:none}
+::selection{background:#fff;color:#000}
+
+.nav{position:fixed;top:0;left:0;right:0;height:72px;padding:0 5vw;display:flex;align-items:center;justify-content:space-between;z-index:10;background:linear-gradient(#050505,transparent)}
+.logo{font:700 14px "Space Mono";letter-spacing:.12em}
+.navlinks{display:flex;gap:28px;font:11px "Space Mono";text-transform:uppercase;color:#999}
+.navlinks a:hover{color:#fff}
+.status{font:10px "Space Mono";color:#8dff75;text-transform:uppercase}
+
+.hero{min-height:100vh;padding:150px 5vw 70px;display:flex;flex-direction:column;justify-content:center;position:relative}
+.grid{position:absolute;inset:0;opacity:.12;background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px);background-size:80px 80px;mask-image:linear-gradient(to bottom,#000,transparent 80%)}
+.kicker{font:11px "Space Mono";color:#888;letter-spacing:.18em;text-transform:uppercase;margin-bottom:25px}
+.hero h1{font-size:clamp(64px,12vw,180px);line-height:.82;letter-spacing:-.08em;text-transform:uppercase;max-width:1100px}
+.hero h1 span{display:block;color:#777}
+.hero h1 .bright{color:#fff}
+.hero-bottom{margin-top:70px;display:flex;justify-content:space-between;gap:30px;align-items:end;max-width:1100px}
+.intro{max-width:470px;color:#999;font-size:15px;line-height:1.7}
+.ctas{display:flex;gap:10px}
+.btn{border:1px solid #333;padding:14px 18px;font:11px "Space Mono";text-transform:uppercase;transition:.25s}
+.btn:hover{background:#fff;color:#000;border-color:#fff}
+.profile-pic {
+    width: 280px;
+    height: 280px;
+    margin-bottom: 50px;
+    border: 1px solid #333;
+    overflow: hidden;
+}
+
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.coord{position:absolute;right:5vw;top:45%;font:10px "Space Mono";color:#555;writing-mode:vertical-rl}
+
+section{padding:120px 5vw}
+.section-head{display:flex;justify-content:space-between;border-top:1px solid #292929;padding-top:15px;margin-bottom:55px}
+.section-head span{font:10px "Space Mono";color:#777;text-transform:uppercase}
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:14px;
+    background:transparent;
+    border:none;
+}
+
+.project{
+    display:grid;
+    grid-template-columns:1fr auto;
+    grid-template-rows:auto auto 1fr auto;
+    gap:18px;
+    padding:0 0 25px;
+    background:#0b0b0b;
+    border:1px solid #292929;
+    border-radius:14px;
+    overflow:hidden;
+    transition:transform .4s ease, border-color .4s ease, background .4s ease;
+}
+
+.project:hover{
+    transform:translateY(-8px);
+    background:#101010;
+    border-color:#555;
+}
+
+.project-image{
+    grid-column:1 / -1;
+    width:100%;
+    height:230px;
+    overflow:hidden;
+    border:none;
+}
+
+.project-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:transform .7s cubic-bezier(.22,1,.36,1);
+}
+
+.project:hover .project-image img{
+    transform:scale(1.06);
+}
+
+.project-info{
+    padding:0 22px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.project-info .num{
+    font:11px "Space Mono";
+    color:#666;
+}
+
+.project h3{
+    font-size:clamp(28px,3vw,46px);
+    line-height:.9;
+    letter-spacing:-.05em;
+    text-transform:uppercase;
+}
+
+.project p{
+    color:#888;
+    line-height:1.6;
+    font-size:13px;
+    max-width:520px;
+}
+
+.project .arrow{
+    padding-right:22px;
+    align-self:end;
+    font-size:38px;
+    transition:transform .4s ease;
+}
+
+.project:hover .arrow{
+    transform:translate(8px,-8px);
+}
+.project-image{
+    width:100%;
+    height:180px;
+    overflow:hidden;
+    border:1px solid #222;
+}
+
+.project-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.project:hover .project-image img {
+    transform: scale(1.03);
+}
+.project:hover{background:#101010}
+.num{font:11px "Space Mono";color:#666;align-self:start}
+.project h3{font-size:clamp(28px,4vw,55px);letter-spacing:-.05em;text-transform:uppercase}
+.project p{color:#888;line-height:1.6;font-size:13px;max-width:430px}
+.arrow{font-size:28px;justify-self:end;align-self:start;transition:.3s}
+.project:hover .arrow{transform:translate(6px,-6px)}
+
+.about{display:grid;grid-template-columns:1fr 1fr;gap:80px}
+.about h2{font-size:clamp(40px,6vw,85px);letter-spacing:-.07em;line-height:.9}
+.about-copy{color:#999;line-height:1.8;font-size:15px}
+.about-copy p+p{margin-top:22px}
+.stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:35px}
+.tag{border:1px solid #2d2d2d;padding:9px 12px;font:10px "Space Mono";color:#aaa}
+
+.contact{min-height:70vh;display:flex;flex-direction:column;justify-content:center}
+.contact h2{font-size:clamp(60px,13vw,180px);line-height:.8;letter-spacing:-.09em;text-transform:uppercase}
+.contact h2 span{color:#777}
+.contact-row{margin-top:70px;display:flex;justify-content:space-between;align-items:end}
+.email{font-size:clamp(18px,3vw,34px);border-bottom:1px solid #555;padding-bottom:8px}
+.socials{display:flex;gap:20px;font:10px "Space Mono";color:#888;text-transform:uppercase}
+.socials a:hover{color:#fff}
+
+footer{border-top:1px solid #222;padding:25px 5vw;display:flex;justify-content:space-between;font:9px "Space Mono";color:#555;text-transform:uppercase}
+
+.reveal{opacity:0;transform:translateY(30px);animation:reveal .9s forwards}
+.delay1{animation-delay:.15s}.delay2{animation-delay:.3s}.delay3{animation-delay:.45s}
+@keyframes reveal{to{opacity:1;transform:none}}
+/* PROJECT ANIMATIONS */
+
+.project {
+    opacity: 0;
+    transform: translateY(70px) scale(0.96);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s cubic-bezier(.22,1,.36,1),
+        border-color 0.35s ease,
+        background 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+/* This is the scroll-reveal state */
+.project.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Hover works AFTER the card has appeared */
+.project.show:hover {
+    transform: translateY(-12px) scale(1.01);
+    background: #111;
+    border-color: #777;
+    box-shadow: 0 22px 50px rgba(0,0,0,.45);
+}
+
+.project-image {
+    overflow: hidden;
+}
+
+.project-image img {
+    transition: transform 0.8s cubic-bezier(.22,1,.36,1);
+}
+
+.project.show:hover .project-image img {
+    transform: scale(1.08);
+}
+
+.project h3 {
+    transition: transform 0.4s ease;
+}
+
+.project.show:hover h3 {
+    transform: translateX(8px);
+}
+
+.project .arrow {
+    transition: transform 0.45s cubic-bezier(.22,1,.36,1);
+}
+
+.project.show:hover .arrow {
+    transform: translate(10px, -10px);
+}
+
+/* =========================
+   MOBILE OPTIMIZATION
+========================= */
+
+@media (max-width: 800px) {
+
+    /* NAV */
+
+    .nav {
+        height: 64px;
+        padding: 0 6vw;
+    }
+
+    .navlinks {
+        display: none;
+    }
+
+    .status {
+        font-size: 8px;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        min-height: 100svh;
+        padding: 105px 6vw 55px;
+    }
+
+    .profile-pic {
+        width: 190px;
+        height: 190px;
+        margin-bottom: 38px;
+    }
+
+    .hero h1 {
+        font-size: clamp(58px, 17vw, 100px);
+        line-height: .84;
+        letter-spacing: -.075em;
+    }
+
+    .kicker {
+        font-size: 9px;
+        letter-spacing: .14em;
+        margin-bottom: 20px;
+    }
+
+    .hero-bottom {
+        display: block;
+        margin-top: 45px;
+    }
+
+    .intro {
+        max-width: 100%;
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+
+    /* BUTTONS */
+
+    .ctas {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+        margin-top: 28px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 15px 16px;
+        text-align: center;
+    }
+
+
+    /* HERO GRID */
+
+    .grid {
+        background-size: 55px 55px;
+        opacity: .08;
+    }
+
+    .coord {
+        display: none;
+    }
+
+
+    /* SECTIONS */
+
+    section {
+        padding: 80px 6vw;
+    }
+
+    .section-head {
+        margin-bottom: 35px;
+        padding-top: 12px;
+    }
+
+    .section-head span {
+        font-size: 8px;
+    }
+
+
+    /* PROJECTS */
+
+    .projects {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .project {
+        display: block;
+        min-height: 0;
+        padding-bottom: 22px;
+        border-radius: 12px;
+    }
+
+    .project-image {
+        width: 100%;
+        height: 190px;
+        border: none;
+    }
+
+    .project-info {
+        padding: 18px 18px 0;
+        gap: 10px;
+    }
+
+    .project h3 {
+        font-size: clamp(32px, 10vw, 48px);
+        line-height: .9;
+    }
+
+    .project p {
+        max-width: 100%;
+        font-size: 12px;
+        line-height: 1.65;
+    }
+
+    .project .arrow {
+        padding-right: 18px;
+        margin-top: 12px;
+        font-size: 30px;
+    }
+
+
+    /* ABOUT */
+
+    .about {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .about h2 {
+        font-size: clamp(52px, 15vw, 80px);
+    }
+
+    .about-copy {
+        font-size: 14px;
+        line-height: 1.75;
+    }
+
+    .stack {
+        margin-top: 28px;
+    }
+
+
+    /* CONTACT */
+
+    .contact {
+        min-height: 75svh;
+    }
+
+    .contact h2 {
+        font-size: clamp(64px, 18vw, 105px);
+    }
+
+    .contact-row {
+        display: block;
+        margin-top: 55px;
+    }
+
+    .email {
+        display: inline-block;
+        max-width: 100%;
+        font-size: clamp(17px, 5vw, 25px);
+        overflow-wrap: anywhere;
+    }
+
+    .socials {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-top: 30px;
+    }
+
+
+    /* FOOTER */
+
+    footer {
+        padding: 20px 6vw;
+        flex-direction: column;
+        gap: 10px;
+        line-height: 1.5;
+    }
+}
+
+
+/* SMALL PHONES */
+
+@media (max-width: 420px) {
+
+    .profile-pic {
+        width: 165px;
+        height: 165px;
+    }
+
+    .hero {
+        padding-top: 95px;
+    }
+
+    .hero h1 {
+        font-size: 18vw;
+    }
+
+    .project-image {
+        height: 170px;
+    }
+
+    .project h3 {
+        font-size: 10vw;
+    }
+
+    .contact h2 {
+        font-size: 19vw;
+    }
+}
+
+
+/* TOUCH DEVICES */
+
+@media (hover: none) and (pointer: coarse) {
+
+    * {
+        cursor: auto !important;
+    }
+
+    .cursor-dot,
+    .cursor-ring {
+        display: none !important;
+    }
+
+    .project:hover {
+        transform: none;
+    }
+
+    .project:hover .project-image img {
+        transform: none;
+    }
+}
+</style>
+</head>
+<body>
+    <div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+<nav class="nav">
+  <a class="logo" href="#">M/</a>
+  <div class="navlinks">
+    <a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a>
+  </div>
+  <div class="status">● Available / 2026</div>
+</nav>
+
+<header class="hero">
+  <div class="grid"></div>
+  <div class="coord">26.7509° N / 94.2037° E</div>
+  <div class="kicker reveal">Portfolio / 001 — AI · DATA · SOFTWARE</div>
+ <div class="profile-pic">
+    <img src="images/my profile.jpeg" alt="Abu Hammad">
+</div>
+
+<h1 class="reveal delay1">
+    <span>HAMMAD</span>
+    <span class="bright">ABU</span>
+</h1>
+  <div class="hero-bottom reveal delay2">
+    <p class="intro">I'm Abu Hammad — a developer exploring AI, Data Science and software engineering. I turn ideas, data and problems into useful digital products.</p>
+    <div class="ctas">
+    <a class="btn" href="#work">View work ↘</a>
+    <a class="btn" href="#contact">Contact ↗</a>
+    <a class="btn" href="./images/resume.pdf" download>Download Resume ↓</a>
+</div>
+  </div>
+</header>
+
+<section id="work">
+
+    <div class="section-head">
+        <span>Selected work</span>
+        <span>04 projects</span>
+    </div>
+
+    <div class="projects">
+
+
+        <!-- ==================== PROJECT 01 ==================== -->
+
+        <a class="project"
+           href="https://github.com/abuhammad7/Quantitative-Research-Job-Simulation"
+           target="_blank"
+           rel="noopener">
+
+            <div class="project-image">
+                <img src="./images/project1.png"
+                     alt="Financial Analytics">
+            </div>
+
+            <div class="project-info">
+
+                <div class="num">01</div>
+
+                <h3>
+                    Financial<br>
+                    Analytics
+                </h3>
+
+                <p>
+                    A practical financial analytics project covering
+                    commodity price analysis, storage contract pricing,
+                    credit risk analysis, and FICO score segmentation.
+                </p>
+
+            </div>
+
+            <div class="arrow">↗</div>
+
+        </a>
+
+        <!-- ==================== END PROJECT 01 ==================== -->
+
+
+        <!-- ==================== PROJECT 02 ==================== -->
+
+        <a class="project"
+           href="https://github.com/abuhammad7/Some-Analysis/tree/main/Superstore%20Analysis"
+           target="_blank"
+           rel="noopener">
+
+            <div class="project-image">
+                <img src="./images/project2.png"
+                     alt="Superstore Analytics">
+            </div>
+
+            <div class="project-info">
+
+                <div class="num">02</div>
+
+                <h3>
+                    Superstore<br>
+                    Analytics
+                </h3>
+
+                <p>
+                    An exploratory data analysis project using Python
+                    and Pandas to investigate shipping performance
+                    and profitability.
+                </p>
+
+            </div>
+
+            <div class="arrow">↗</div>
+
+        </a>
+
+        <!-- ==================== END PROJECT 02 ==================== -->
+
+
+        <!-- ==================== PROJECT 03 ==================== -->
+
+        <a class="project"
+           href="https://github.com/abuhammad7/Some-Analysis/tree/main/Natural%20Gas%20Price%20Estimation%20Analysis"
+           target="_blank"
+           rel="noopener">
+
+            <div class="project-image">
+                <img src="./images/project3.png"
+                     alt="Natural Gas Forecasting">
+            </div>
+
+            <div class="project-info">
+
+                <div class="num">03</div>
+
+                <h3>
+                    Natural Gas<br>
+                    Forecasting
+                </h3>
+
+                <p>
+                    A time-series analysis project using Python to
+                    analyze natural gas prices, model historical
+                    trends and seasonality, and estimate future prices.
+                </p>
+
+            </div>
+
+            <div class="arrow">↗</div>
+
+        </a>
+
+        <!-- ==================== END PROJECT 03 ==================== -->
+
+
+        <!-- ==================== PROJECT 04 ==================== -->
+
+        <a class="project"
+           href="https://github.com/abuhammad7/Some-Analysis/tree/main/Air%20Quality%20Analysis"
+           target="_blank"
+           rel="noopener">
+
+            <div class="project-image">
+                <img src="./images/project4.png"
+                     alt="Air Quality Prediction">
+            </div>
+
+            <div class="project-info">
+
+                <div class="num">04</div>
+
+                <h3>
+                    Air Quality<br>
+                    Prediction
+                </h3>
+
+                <p>
+                    A machine learning regression project predicting
+                    CO concentration from air-quality sensor data
+                    and time-based features.
+                </p>
+
+            </div>
+
+            <div class="arrow">↗</div>
+
+        </a>
+
+        <!-- ==================== END PROJECT 04 ==================== -->
+
+
+    </div>
+
+</section>
+
+<section id="about">
+  <div class="section-head"><span>01 / About</span><span>Who I am</span></div>
+  <div class="about">
+    <h2>DATA.<br>AI.<br>BUILD.</h2>
+
+<div class="about-copy">
+    <p>I'm Abu Hammad, a B.Sc. (Hons) student specializing in Data Science & AI, with a passion for turning ideas and data into meaningful solutions.</p>
+
+    <p>I'm exploring artificial intelligence, machine learning, data analysis and software development. I enjoy learning by building—experimenting with new technologies, solving problems and turning concepts into working projects.</p>
+
+    <p>I'm constantly improving my technical skills while exploring how AI and data can be used to solve real-world problems.</p>
+
+    <div class="stack">
+        <span class="tag">PYTHON</span>
+        <span class="tag">DATA SCIENCE</span>
+        <span class="tag">AI / ML</span>
+        <span class="tag">SQL</span>
+        <span class="tag">WEB DEVELOPMENT</span>
+        <span class="tag">GIT</span>
+    </div>
+</div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="kicker">02 / Start a conversation</div>
+  <h2>Let's<br><span>Build.</span></h2>
+  <div class="contact-row">
+    <a class="email"
+   href="https://mail.google.com/mail/?view=cm&fs=1&to=abuhammadx@gmail.com"
+   target="_blank">
+   abuhammadx@gmail.com ↗
+</a>
+   <div class="socials">
+    <a href="https://github.com/abuhammad7" target="_blank" rel="noopener">GitHub ↗</a>
+    <a href="https://www.linkedin.com/in/abu-hammad-197b8b354/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    <a href="https://www.instagram.com/abuhammad_/" target="_blank" rel="noopener">Instagram ↗</a>
+</div>
+  </div>
+</section>
+
+<footer><span> Abu Hammad/ PORTFOLIO</span><span>© 2026 — ALL SYSTEMS NOMINAL</span></footer>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const projects = document.querySelectorAll(".project");
+
+    const reveal = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
+        });
+    }, {
+        threshold: 0.12,
+        rootMargin: "0px 0px -60px 0px"
+    });
+
+    projects.forEach(function (project, index) {
+        project.style.transitionDelay = (index * 0.12) + "s";
+        reveal.observe(project);
+    });
+});
+</script>
+
+
+
+<script>
+const cursorDot = document.querySelector(".cursor-dot");
+const cursorRing = document.querySelector(".cursor-ring");
+
+let mouseX = 0;
+let mouseY = 0;
+let ringX = 0;
+let ringY = 0;
+
+document.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    cursorDot.style.left = mouseX + "px";
+    cursorDot.style.top = mouseY + "px";
+});
+
+function animateCursor() {
+
+    ringX += (mouseX - ringX) * 0.15;
+    ringY += (mouseY - ringY) * 0.15;
+
+    cursorRing.style.left = ringX + "px";
+    cursorRing.style.top = ringY + "px";
+
+    requestAnimationFrame(animateCursor);
+}
+
+animateCursor();
+
+
+/* Expand cursor over clickable elements */
+
+document.querySelectorAll("a, button").forEach((element) => {
+
+    element.addEventListener("mouseenter", () => {
+        cursorRing.style.width = "54px";
+        cursorRing.style.height = "54px";
+        cursorRing.style.borderColor = "#fff";
+        cursorRing.style.background = "rgba(255,255,255,0.05)";
+    });
+
+    element.addEventListener("mouseleave", () => {
+        cursorRing.style.width = "34px";
+        cursorRing.style.height = "34px";
+        cursorRing.style.borderColor = "rgba(255,255,255,0.55)";
+        cursorRing.style.background = "transparent";
+    });
+
+});
+</script>
+</body>
+</html>
